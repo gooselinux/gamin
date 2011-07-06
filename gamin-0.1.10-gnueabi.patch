@@ -1,0 +1,14 @@
+diff -up gamin-0.1.10/configure.in.old gamin-0.1.10/configure.in
+--- gamin-0.1.10/configure.in.old	2008-11-24 16:23:06.000000000 +0100
++++ gamin-0.1.10/configure.in	2009-01-05 16:20:41.740669149 +0100
+@@ -158,6 +158,10 @@ AC_ARG_ENABLE(debug,
+ if test x$debug = xyes ; then
+     AC_DEFINE([GAMIN_DEBUG], [], [Enable debugging support])
+ fi
++#AM_CONDITIONAL(HAVE_LINUX, test x$target_os = xlinux-gnueabi)
++if test x$target_os = xlinux-gnueabi; then
++      AC_DEFINE([HAVE_LINUX],[],[Whether we are using linux or not])
++fi
+ 
+ AM_CONDITIONAL(GAMIN_DEBUG, test x$debug = xyes)
+ 
